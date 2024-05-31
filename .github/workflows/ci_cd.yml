@@ -16,7 +16,7 @@ jobs:
           ecr: auto
           logout: true
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_KEY }}
       - name: Extract metadata (labels, tags, etc.) for Docker
         id: meta
         uses: docker/metadata-action@v5
