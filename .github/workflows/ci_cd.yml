@@ -58,6 +58,11 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             docker-compose down
-            docker rmi -f $(docker images -q)
+            images=$(docker images -q)
+            if [ -n "$images" ]; then
+              docker rmi -f $images
+            else
+              echo "No images to remove"
+            fi
             docker-compose pull
             docker-compose up -d
